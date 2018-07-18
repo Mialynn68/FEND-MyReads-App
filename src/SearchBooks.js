@@ -12,15 +12,14 @@ class SearchBooks extends Component {
     books: []
   }
 
-	componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState( {books: books} )
-    })
-  }
-
 	updateQuery = (query) => {
 		this.setState({ query: query.trim() })
 	}
+
+	componentDidMount() {
+    let query = 'fitness'
+    BooksAPI.search(query).then(books => console.log(books))
+  }
 
 	render() {
 		let searchResults
