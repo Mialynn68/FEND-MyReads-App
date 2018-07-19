@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BookShelfChange from './BookShelfChange'
+import SelectShelf from './SelectShelf'
 
 class DisplaySearchResults extends Component {
 
@@ -14,8 +14,8 @@ class DisplaySearchResults extends Component {
 									<div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks.thumbnail})` }}>
 									</div>
 									<div className="book-shelf-changer">
-										<BookShelfChange
-										value={book.shelf}
+										<SelectShelf
+										//value={book.shelf}
 										onChangeShelf={this.props.onChangeShelf}
 										book={book}/>
 									</div>

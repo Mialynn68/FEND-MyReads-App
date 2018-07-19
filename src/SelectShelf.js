@@ -3,9 +3,13 @@ import React, { Component } from 'react'
 class SelectShelf extends Component {
   constructor(props) {
     super(props)
-    this.state = {value: this.props.value};
+    this.state = {value: ''};
     this.handleChange = this.handleChange.bind(this)
   }
+
+	componentDidMount() {
+			this.setState({ value: 'none' })
+	}
 
   handleChange(event) {
     this.setState({value: event.target.value})

@@ -47,11 +47,11 @@ class BooksApp extends React.Component {
 					)}
 				/>*/}
 
-				<Route path="/search" render={() => (
+				<Route path="/search" render={() =>
           <SearchBooks
             onChangeShelf={this.changeShelf}
           />
-        )}/>
+        }/>
 
         <Route exact path="/" render={() => (
           <div className="list-books">

@@ -33,8 +33,6 @@ class SearchBooks extends Component {
 
 		searchResults.sort(sortBy('name'))
 
-		console.log(this.props.onChangeShelf)
-
     	return (
           <div className="search-books">
             <div className="search-books-bar">
