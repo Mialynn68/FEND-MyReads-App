@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 
 class SelectShelf extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {value: ''};
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-	componentDidMount() {
-			this.setState({ value: 'none' })
+	constructor(props) {
+		super(props)
+		this.state = {value: 'none'};
+		this.handleChange = this.handleChange.bind(this)
 	}
 
-  handleChange(event) {
-    this.setState({value: event.target.value})
-    const shelf=event.target.value
+	handleChange(event) {
+		this.setState({value: event.target.value})
+		const shelf=event.target.value
 		const book=this.props.book
-    this.props.onChangeShelf(book, shelf)
-  }
+		this.props.onChangeShelf(book, shelf)
+	}
 
   render() {
     return (

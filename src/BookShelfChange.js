@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class BookShelfChange extends Component {
   constructor(props) {
     super(props)
-    this.state = {value: this.props.value};
+    this.state = {value: ''};
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -16,7 +16,7 @@ class BookShelfChange extends Component {
 
   render() {
     return (
-      <select value={this.state.value} onChange={this.handleChange}>
+      <select value={this.props.value} onChange={this.handleChange}>
       	<option value="move" disabled>Move to...</option>
         <option value="currentlyReading">Currently Reading</option>
         <option value="wantToRead">Want to Read</option>

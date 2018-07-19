@@ -12,27 +12,21 @@ class SearchBooks extends Component {
     books: []
   }
 
-	updateQuery = (query) => {
-		this.setState({ query: query.trim() })
+	updateSearch = (query) => {
+		if (query) {
+			this.setState({ query: query.trim() })
+			BooksAPI.search(query).then(books => this.setState({ books: books }))
+		} else {
+			this.setState({ query: '', books:[] })
+		}
 	}
 
-	componentDidMount() {
-    let query = 'react'
-    BooksAPI.search(query).then(books => this.setState({ books: books }))
-  }
+	/*updateQuery = (query) => {
+		this.setState({ query: query.trim() })
+		BooksAPI.search(query).then(books => this.setState({ books: books }))
+	}*/
 
 	render() {
-		let searchResults
-		if (this.state.query) {
-			const match = new RegExp(escapeRegExp(this.state.query), 'i')
-			searchResults = this.state.books.filter((book) => match.test(book.authors))
-
-		} else {
-			searchResults = this.state.books
-		}
-
-		searchResults.sort(sortBy('name'))
-
     	return (
           <div className="search-books">
             <div className="search-books-bar">
@@ -44,12 +38,12 @@ class SearchBooks extends Component {
 									type="text"
 									placeholder="Search by title or author"
 									value={this.state.query}
-									onChange={(event) => this.updateQuery(event.target.value)}
+									onChange={(event) => this.updateSearch(event.target.value)}
 								/>
               </div>
             </div>
             <DisplaySearchResults
-						books={searchResults}
+						books={this.state.books}
 						onChangeShelf={this.props.onChangeShelf}
 						/>
           </div>
