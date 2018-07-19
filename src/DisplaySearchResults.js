@@ -16,7 +16,7 @@ class DisplaySearchResults extends Component {
 									<div className="book-shelf-changer">
 										<BookShelfChange
 										value={book.shelf}
-										//onChangeShelf={this.props.onChangeShelf}
+										onChangeShelf={this.props.onChangeShelf}
 										book={book}/>
 									</div>
 								</div>

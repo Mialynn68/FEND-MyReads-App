@@ -33,7 +33,7 @@ class SearchBooks extends Component {
 
 		searchResults.sort(sortBy('name'))
 
-		console.log(this.props.location.state)
+		console.log(this.props.onChangeShelf)
 
     	return (
           <div className="search-books">
@@ -52,7 +52,7 @@ class SearchBooks extends Component {
             </div>
             <DisplaySearchResults
 						books={searchResults}
-						//onChangeShelf={this.props.location.state.onChangeShelf}
+						onChangeShelf={this.props.onChangeShelf}
 						/>
           </div>
         )
