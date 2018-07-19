@@ -17,8 +17,8 @@ class SearchBooks extends Component {
 	}
 
 	componentDidMount() {
-    let query = 'fitness'
-    BooksAPI.search(query).then(books => console.log(books))
+    let query = 'react'
+    BooksAPI.search(query).then(books => this.setState({ books: books }))
   }
 
 	render() {
@@ -32,6 +32,8 @@ class SearchBooks extends Component {
 		}
 
 		searchResults.sort(sortBy('name'))
+
+		console.log(this.props.location.state)
 
     	return (
           <div className="search-books">
@@ -49,7 +51,9 @@ class SearchBooks extends Component {
               </div>
             </div>
             <DisplaySearchResults
-						books={searchResults}/>
+						books={searchResults}
+						//onChangeShelf={this.props.location.state.onChangeShelf}
+						/>
           </div>
         )
     }

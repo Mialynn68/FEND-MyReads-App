@@ -54,7 +54,20 @@ class BooksApp extends React.Component {
             <div className="open-search">
              <Link
                to="/search"
-               >Add a book</Link>
+               >Add a book
+						 </Link>
+							{/*<Route
+								path="/search"
+								render={() => <SearchBooks onChange={this.changeShelf} books={this.books} />}
+							/>*/}
+						<Link to={{
+							pathname: '/search',
+							state: {
+								books: this.state.books
+							}
+						}}>
+							Add a book
+						</Link>
             </div>
           </div>
         )}/>
