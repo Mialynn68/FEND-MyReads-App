@@ -3,6 +3,9 @@ import SelectShelf from './SelectShelf'
 
 class DisplaySearchResults extends Component {
 
+	// handle invalid query and query without results
+	// basics from http://devnacho.com/2016/02/15/different-ways-to-add-if-else-statements-in-JSX/
+
 	renderBookList() {
 		if (this.props.query != '') {
 			if (this.props.books.length > 0) {

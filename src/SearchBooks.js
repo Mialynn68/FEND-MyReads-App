@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { DebounceInput } from 'react-debounce-input'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import DisplaySearchResults from './DisplaySearchResults'
@@ -29,12 +30,21 @@ class SearchBooks extends Component {
            		className="close-search"
            		to="/">Close</Link>
               <div className="search-books-input-wrapper">
-                <input
+
+								<DebounceInput
+									minLength={1}
+									debounceTimeout={300}
 									type="text"
 									placeholder="Search by title or author"
 									value={this.state.query}
 									onChange={(event) => this.updateSearch(event.target.value)}
 								/>
+                {/*<input
+									type="text"
+									placeholder="Search by title or author"
+									value={this.state.query}
+									onChange={(event) => this.updateSearch(event.target.value)}
+								/>*/}
               </div>
             </div>
             <DisplaySearchResults
