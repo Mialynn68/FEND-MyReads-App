@@ -14,17 +14,12 @@ class SearchBooks extends Component {
 
 	updateSearch = (query) => {
 		if (query) {
-			this.setState({ query: query.trim() })
+			this.setState({ query: query })
 			BooksAPI.search(query).then(books => this.setState({ books: books }))
 		} else {
 			this.setState({ query: '', books:[] })
 		}
 	}
-
-	/*updateQuery = (query) => {
-		this.setState({ query: query.trim() })
-		BooksAPI.search(query).then(books => this.setState({ books: books }))
-	}*/
 
 	render() {
     	return (
@@ -45,6 +40,7 @@ class SearchBooks extends Component {
             <DisplaySearchResults
 						books={this.state.books}
 						onChangeShelf={this.props.onChangeShelf}
+						query={this.state.query}
 						/>
           </div>
         )
