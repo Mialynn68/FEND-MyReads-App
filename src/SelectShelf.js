@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class SelectShelf extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {value: 'none'};
+		this.state = {value: this.props.value};
 		this.handleChange = this.handleChange.bind(this)
 	}
 

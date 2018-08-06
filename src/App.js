@@ -11,22 +11,46 @@ import './App.css'
 class BooksApp extends React.Component {
 
   state = {
-    books: []
+    books: [],
+		changedBook: []
   }
 
-  componentDidMount() {
-    BooksAPI.getAll().then((books) => {
+	getBooks = () => {
+		BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
     })
+	}
+
+  componentDidMount() {
+		this.getBooks()
+    /*BooksAPI.getAll().then((books) => {
+      this.setState({ books: books })
+    })*/
   }
+
+	/*changeShelf = (book, shelf) => {
+		console.log(book)
+		console.log(shelf)
+		BooksAPI.update(book, shelf)
+		console.log(this.state.book)
+		BooksAPI.getAll().then((books) => {
+      this.setState({ books: books })
+    })
+	}
+
+	changeShelf = (book, shelf) => {
+		BooksAPI.update(book, shelf).then() => {
+			this.setState(prevState => ({
+				books: [...prevState.books.filter(item.id !== book.id), book]
+			})
+		}
+	}*/
 
 	changeShelf = (book, shelf) => {
 		console.log(book)
 		console.log(shelf)
 		BooksAPI.update(book, shelf)
-		BooksAPI.getAll().then((books) => {
-      this.setState({ books: books })
-    })
+		this.getBooks()
 	}
 
   render() {
@@ -37,6 +61,7 @@ class BooksApp extends React.Component {
 				<Route path="/search" render={() =>
           <SearchBooks
             onChangeShelf={this.changeShelf}
+						books={this.state.books}
           />
         }/>
         <Route exact path="/" render={() => (
@@ -55,7 +80,7 @@ class BooksApp extends React.Component {
                to="/search"
                >Add a book
 						 </Link>
-            </div>
+					 </div>
           </div>
         )}/>
       </div>
