@@ -3,14 +3,6 @@ import SelectShelf from './SelectShelf'
 
 class DisplaySearchResults extends Component {
 
-	/*let thumbnail = (book) => {
-		if (book.imageLinks) {
-			return book.imageLinks.thumbnail
-		} else {
-			return ''
-			}
-	}*/
-
 	// handle invalid query and query without results
 	// basics from http://devnacho.com/2016/02/15/different-ways-to-add-if-else-statements-in-JSX/
 
@@ -21,16 +13,17 @@ class DisplaySearchResults extends Component {
 		        <ol className="books-grid">
 							{this.props.searchResult.map(resultBook => {
 								let shelf = 'none'
-
 								this.props.books.map(book => (
 									book.id === resultBook.id ?
 									shelf = book.shelf : ''
 								))
+								let thumbnail = resultBook.imageLinks ?
+								resultBook.imageLinks.thumbnail : ''
 								return (
 								<li key={resultBook.id}>
 									<div className="book">
 										<div className="book-top">
-											<div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${resultBook.imageLinks.thumbnail})` }}>
+											<div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url("${thumbnail}")` }}>
 											</div>
 											<div className="book-shelf-changer">
 												<SelectShelf
