@@ -43,7 +43,7 @@ class DisplaySearchResults extends Component {
 
 
 	render() {
-		console.log(this.props.books);
+		//console.log(this.props.books);
 
   	return (
       <div className="search-books-results">
