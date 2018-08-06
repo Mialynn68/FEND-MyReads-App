@@ -23,28 +23,7 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
 		this.getBooks()
-    /*BooksAPI.getAll().then((books) => {
-      this.setState({ books: books })
-    })*/
   }
-
-	/*changeShelf = (book, shelf) => {
-		console.log(book)
-		console.log(shelf)
-		BooksAPI.update(book, shelf)
-		console.log(this.state.book)
-		BooksAPI.getAll().then((books) => {
-      this.setState({ books: books })
-    })
-	}
-
-	changeShelf = (book, shelf) => {
-		BooksAPI.update(book, shelf).then() => {
-			this.setState(prevState => ({
-				books: [...prevState.books.filter(item.id !== book.id), book]
-			})
-		}
-	}*/
 
 	changeShelf = (book, shelf) => {
 		console.log(book)
@@ -54,8 +33,6 @@ class BooksApp extends React.Component {
 	}
 
   render() {
-		console.log(this.state.books);
-
     return (
       <div className="app">
 				<Route path="/search" render={() =>

@@ -30,7 +30,6 @@ class SearchBooks extends Component {
            		className="close-search"
            		to="/">Close</Link>
               <div className="search-books-input-wrapper">
-
 								<DebounceInput
 									minLength={1}
 									debounceTimeout={300}
@@ -39,12 +38,6 @@ class SearchBooks extends Component {
 									value={this.state.query}
 									onChange={(event) => this.updateSearch(event.target.value)}
 								/>
-                {/*<input
-									type="text"
-									placeholder="Search by title or author"
-									value={this.state.query}
-									onChange={(event) => this.updateSearch(event.target.value)}
-								/>*/}
               </div>
             </div>
             <DisplaySearchResults

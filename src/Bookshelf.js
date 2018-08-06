@@ -20,8 +20,8 @@ class Bookshelf extends Component {
 											<BookShelfChange
 											value={book.shelf}
 											onChangeShelf={this.props.onChangeShelf}
-											book={book}/>
-
+											book={book}
+										/>
 										</div>
 									</div>
 									<div className="book-title">{book.title}</div>
