@@ -12,7 +12,7 @@ class BooksApp extends React.Component {
 
   state = {
     books: [],
-		changedBook: []
+		//changedBook: []
   }
 
 	getBooks = () => {
@@ -26,10 +26,12 @@ class BooksApp extends React.Component {
   }
 
 	changeShelf = (book, shelf) => {
-		console.log(book)
-		console.log(shelf)
 		BooksAPI.update(book, shelf)
-		this.getBooks()
+		let remainingBooks = this.state.books.filter(singleBook =>
+		singleBook.title !== book.title)
+		book.shelf = shelf
+		let updatedBooks = remainingBooks.concat(book)
+		this.setState({books: updatedBooks })
 	}
 
   render() {

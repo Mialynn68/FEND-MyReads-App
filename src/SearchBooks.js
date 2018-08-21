@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { DebounceInput } from 'react-debounce-input'
-import escapeRegExp from 'escape-string-regexp'
 import DisplaySearchResults from './DisplaySearchResults'
 import * as BooksAPI from './BooksAPI'
 
